@@ -1,0 +1,295 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="py-5 mb-5">
+            <h1>لـــرزنـــگار</h1>
+            <h6>اطلاعات زمین لرزه های ایران</h6>
+            <hr />
+            <form class="input-group mb-sm-5" asp-page="Search" method="get">
+                <input name="city" class="form-control" type="text" placeholder="جستجو شهر" aria-label="جستجو شهر">
+                <div class="input-group-append">
+                    <button class="btn btn-outline-success" type="submit"><span class="fal fa-search"></span> جستجو</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="my-3 p-3 bg-white rounded shadow">
+            <h6 class="border-bottom border-gray pb-2 mb-0">Suggestions</h6>
+            <div class="media text-muted pt-3">
+                <svg class="bd-placeholder-img ml-2 rounded" width="32" height="32" xmlns="http://www.w3.org/2000/svg"
+                     preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 32x32">
+                    <title>Placeholder</title>
+                    <rect width="100%" height="100%" fill="#007bff" />
+                    <text x="50%" y="50%" fill="#007bff"
+                          dy=".3em">32x32</text>
+                </svg>
+                <div class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+                    <div class="d-flex justify-content-between align-items-center w-100">
+                        <strong class="text-gray-dark">Full Name</strong>
+                        <a href="#">Follow</a>
+                    </div>
+                    <span class="d-block">@@username</span>
+                </div>
+            </div>
+            <div class="media text-muted pt-3">
+                <svg class="bd-placeholder-img ml-2 rounded" width="32" height="32" xmlns="http://www.w3.org/2000/svg"
+                     preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 32x32">
+                    <title>Placeholder</title>
+                    <rect width="100%" height="100%" fill="#007bff" />
+                    <text x="50%" y="50%" fill="#007bff"
+                          dy=".3em">32x32</text>
+                </svg>
+                <div class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+                    <div class="d-flex justify-content-between align-items-center w-100">
+                        <strong class="text-gray-dark">Full Name</strong>
+                        <a href="#">Follow</a>
+                    </div>
+                    <span class="d-block">@@username</span>
+                </div>
+            </div>
+            <div class="media text-muted pt-3">
+                <svg class="bd-placeholder-img ml-2 rounded" width="32" height="32" xmlns="http://www.w3.org/2000/svg"
+                     preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 32x32">
+                    <title>Placeholder</title>
+                    <rect width="100%" height="100%" fill="#007bff" />
+                    <text x="50%" y="50%" fill="#007bff"
+                          dy=".3em">32x32</text>
+                </svg>
+                <div class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+                    <div class="d-flex justify-content-between align-items-center w-100">
+                        <strong class="text-gray-dark">Full Name</strong>
+                        <a href="#">Follow</a>
+                    </div>
+                    <span class="d-block">@@username</span>
+                </div>
+            </div>
+            <small class="d-block text-left mt-3">
+                <a href="#">All suggestions</a>
+            </small>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="p-3 bg-white rounded shadow">
+            <p class="float-left text-danger h6"><span class="fal fa-play-circle fa-blink"></span> آپدیت زنده</p>
+            <h6 class="border-bottom border-gray pb-2 mb-0">آخرین رویدادها</h6>
+            <div class="media text-muted pt-3">
+                <span class="bd-placeholder-img ml-2 rounded badge badge-danger" width="32" height="32">
+                    6.6 <br>
+                    <span style="font-size: 10px">ریشتر</span>
+                </span>
+                <div class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+                    <button class="float-left btn btn-sm btn-info" type="button" data-toggle="collapse"
+                            data-target="#multiCollapseExample2">
+                        <span class="fal fa-info"></span> جزئیات
+                    </button>
+                    <a href="search.html?city='kermanshah'">
+                        <h5 class="d-block text-gray-dark"><span class="fal fa-city"></span> کرمانشاه</h5>
+                    </a>
+                    <p><span class="fal fa-clock"></span> 23 دقیقه و 10 ثانیه پیش</p>
+                </div>
+            </div>
+
+            <div class="collapse multi-collapse" id="multiCollapseExample2">
+                <div class="" style="font-size: 15px;">
+                    <table class="table table-striped">
+                        <tr>
+                            <td align="left">نوع</td>
+                            <td align="center" width="16px;"><span class="fal fa-signal-stream"></span></td>
+                            <td>لغزش صفحه افقی</td>
+                        </tr>
+                        <td align="left">عمق</td>
+                        <td align="center"><span class="fal fa-sort-amount-down"></span></td>
+                        <td>5 کیلومتری</td>
+                        </tr>
+                        <td align="left">مدت</td>
+                        <td align="center"><span class="fal fa-chess-clock"></span></td>
+                        <td>13 ثانیه</td>
+                        </tr>
+                        <td align="left">میزان خسارت</td>
+                        <td align="center"><span class="fal fa-house-damage"></span></td>
+                        <td>1000 میلیون تومان</td>
+                        </tr>
+                        <td align="left">میزان تلفات</td>
+                        <td align="center"><span class="fal fa-tombstone-alt"></span></td>
+                        <td>5 نفر</td>
+                        </tr>
+                        <tr>
+                            <td align="left">تعداد آوارگان</td>
+                            <td align="center"><span class="fal fa-house-leave"></span></td>
+                            <td>تخمین زده نشده</td>
+                        </tr>
+                    </table>
+                </div>
+                <hr />
+            </div>
+
+            <div class="media text-muted pt-3">
+                <span class="bd-placeholder-img ml-2 rounded badge badge-info" width="32" height="32">
+                    2.9 <br>
+                    <span style="font-size: 10px">ریشتر</span>
+                </span>
+                <div class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+                    <button class="float-left btn btn-sm btn-info" type="button" data-toggle="collapse"
+                            data-target="#multiCollapseExample2">
+                        <span class="fal fa-info"></span> جزئیات
+                    </button>
+                    <h5 class="d-block text-gray-dark"><span class="fal fa-city"></span> یزد</h5>
+                    <p><span class="fal fa-clock"></span> 1 ساعت و 23 دقیقه و 10 ثانیه پیش</p>
+                </div>
+            </div>
+            <div class="media text-muted pt-3">
+                <span class="bd-placeholder-img ml-2 rounded badge badge-warning" width="32" height="32">
+                    4.1 <br>
+                    <span style="font-size: 10px">ریشتر</span>
+                </span>
+                <div class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+                    <button class="float-left btn btn-sm btn-info" type="button" data-toggle="collapse"
+                            data-target="#multiCollapseExample2">
+                        <span class="fal fa-info"></span> جزئیات
+                    </button>
+                    <h5 class="d-block text-gray-dark"><span class="fal fa-city"></span> چهارمحال و بختیاری</h5>
+                    <p><span class="fal fa-clock"></span> 1399/01/01 ساعت 22:30</p>
+                </div>
+            </div>
+            <div class="media text-muted pt-3">
+                <span class="bd-placeholder-img ml-2 rounded badge badge-danger" width="32" height="32">
+                    6.6 <br>
+                    <span style="font-size: 10px">ریشتر</span>
+                </span>
+                <div class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+                    <button class="float-left btn btn-sm btn-info" type="button" data-toggle="collapse"
+                            data-target="#multiCollapseExample2">
+                        <span class="fal fa-info"></span> جزئیات
+                    </button>
+                    <a href="search.html?city='kermanshah'">
+                        <h5 class="d-block text-gray-dark"><span class="fal fa-city"></span> کرمانشاه</h5>
+                    </a>
+                    <p><span class="fal fa-clock"></span> 23 دقیقه و 10 ثانیه پیش</p>
+                </div>
+            </div>
+
+            <div class="collapse multi-collapse" id="multiCollapseExample2">
+                <div class="" style="font-size: 15px;">
+                    <table class="table table-striped">
+                        <tr>
+                            <td align="left">نوع</td>
+                            <td align="center" width="16px;"><span class="fal fa-signal-stream"></span></td>
+                            <td>لغزش صفحه افقی</td>
+                        </tr>
+                        <td align="left">عمق</td>
+                        <td align="center"><span class="fal fa-sort-amount-down"></span></td>
+                        <td>5 کیلومتری</td>
+                        </tr>
+                        <td align="left">مدت</td>
+                        <td align="center"><span class="fal fa-chess-clock"></span></td>
+                        <td>13 ثانیه</td>
+                        </tr>
+                        <td align="left">میزان خسارت</td>
+                        <td align="center"><span class="fal fa-house-damage"></span></td>
+                        <td>1000 میلیون تومان</td>
+                        </tr>
+                        <td align="left">میزان تلفات</td>
+                        <td align="center"><span class="fal fa-tombstone-alt"></span></td>
+                        <td>5 نفر</td>
+                        </tr>
+                        <tr>
+                            <td align="left">تعداد آوارگان</td>
+                            <td align="center"><span class="fal fa-house-leave"></span></td>
+                            <td>تخمین زده نشده</td>
+                        </tr>
+                    </table>
+                </div>
+                <hr />
+            </div>
+
+            <div class="media text-muted pt-3">
+                <span class="bd-placeholder-img ml-2 rounded badge badge-info" width="32" height="32">
+                    2.9 <br>
+                    <span style="font-size: 10px">ریشتر</span>
+                </span>
+                <div class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+                    <button class="float-left btn btn-sm btn-info" type="button" data-toggle="collapse"
+                            data-target="#multiCollapseExample2">
+                        <span class="fal fa-info"></span> جزئیات
+                    </button>
+                    <h5 class="d-block text-gray-dark"><span class="fal fa-city"></span> یزد</h5>
+                    <p><span class="fal fa-clock"></span> 1 ساعت و 23 دقیقه و 10 ثانیه پیش</p>
+                </div>
+            </div>
+            <div class="media text-muted pt-3">
+                <span class="bd-placeholder-img ml-2 rounded badge badge-warning" width="32" height="32">
+                    4.1 <br>
+                    <span style="font-size: 10px">ریشتر</span>
+                </span>
+                <div class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+                    <button class="float-left btn btn-sm btn-info" type="button" data-toggle="collapse"
+                            data-target="#multiCollapseExample2">
+                        <span class="fal fa-info"></span> جزئیات
+                    </button>
+                    <h5 class="d-block text-gray-dark"><span class="fal fa-city"></span> چهارمحال و بختیاری</h5>
+                    <p><span class="fal fa-clock"></span> 1399/01/01 ساعت 22:30</p>
+                </div>
+            </div>
+            <small class="d-block text-left mt-3">
+                <a href="#">مشاهده لیست کامل رویدادها</a>
+            </small>
+        </div>
+    </div>
+</div>
+
+<div class="my-3 p-3 bg-white rounded shadow-sm">
+    <h6 class="border-bottom border-gray pb-2 mb-0">Suggestions</h6>
+    <div class="media text-muted pt-3">
+        <svg class="bd-placeholder-img ml-2 rounded" width="32" height="32" xmlns="http://www.w3.org/2000/svg"
+             preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 32x32">
+            <title>Placeholder</title>
+            <rect width="100%" height="100%" fill="#007bff" />
+            <text x="50%" y="50%" fill="#007bff" dy=".3em">32x32</text>
+        </svg>
+        <div class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+            <div class="d-flex justify-content-between align-items-center w-100">
+                <strong class="text-gray-dark">Full Name</strong>
+                <a href="#">Follow</a>
+            </div>
+            <span class="d-block">@@username</span>
+        </div>
+    </div>
+    <div class="media text-muted pt-3">
+        <svg class="bd-placeholder-img ml-2 rounded" width="32" height="32" xmlns="http://www.w3.org/2000/svg"
+             preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 32x32">
+            <title>Placeholder</title>
+            <rect width="100%" height="100%" fill="#007bff" />
+            <text x="50%" y="50%" fill="#007bff" dy=".3em">32x32</text>
+        </svg>
+        <div class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+            <div class="d-flex justify-content-between align-items-center w-100">
+                <strong class="text-gray-dark">Full Name</strong>
+                <a href="#">Follow</a>
+            </div>
+            <span class="d-block">@@username</span>
+        </div>
+    </div>
+    <div class="media text-muted pt-3">
+        <svg class="bd-placeholder-img ml-2 rounded" width="32" height="32" xmlns="http://www.w3.org/2000/svg"
+             preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 32x32">
+            <title>Placeholder</title>
+            <rect width="100%" height="100%" fill="#007bff" />
+            <text x="50%" y="50%" fill="#007bff" dy=".3em">32x32</text>
+        </svg>
+        <div class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+            <div class="d-flex justify-content-between align-items-center w-100">
+                <strong class="text-gray-dark">Full Name</strong>
+                <a href="#">Follow</a>
+            </div>
+            <span class="d-block">@@username</span>
+        </div>
+    </div>
+    <small class="d-block text-left mt-3">
+        <a href="#">All suggestions</a>
+    </small>
+</div>

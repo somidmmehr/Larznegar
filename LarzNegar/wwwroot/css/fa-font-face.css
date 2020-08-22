@@ -1,0 +1,19 @@
+@font-face {
+  font-family: Yekan;
+  src: url('../font/Yekan.eot');
+  src: url('../font/Yekan?#iefix') format('FontName-opentype'),
+       url('../font/Yekan.woff') format('woff'),
+       url('../font/Yekan.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: Shabnam;
+  src: url('../font/Shabnam-FD.eot');
+  src: url('../font/Shabnam-FD?#iefix') format('FontName-opentype'),
+       url('../font/Shabnam-FD.woff') format('woff'),
+       url('../font/Shabnam-FD.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}

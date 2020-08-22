@@ -1,0 +1,85 @@
+﻿<!DOCTYPE html>
+<html lang="fa" dir="rtl" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description"
+          content="زمین لرزه، زلزله، زمین لرزه ایران، زلزله ایران، تاریخچه زمین لرزه، خسارات زلزله، تلفات زلزله، خسارت زیمن لرزه ایران، تلفات زلزله ایران" />
+    <meta name="author" content="dot team" />
+    <title>@ViewData["Title"] - لرزنگار</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="~/assets/dist/css/bootstrap-rtl.css" rel="stylesheet" />
+
+    <style>
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        @@media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+            }
+        }
+
+        .media {
+            width: 100%;
+        }
+    </style>
+    <!-- Custom styles for this template -->
+    <link href="~/css/offcanvas.css" rel="stylesheet" />
+    <link href="~/assets/FontAwesome/css/all.css" rel="stylesheet" />
+    <link href="~/css/fa-style.css" rel="stylesheet" />
+</head>
+
+<body class="bg-light">
+    <nav class="navbar navbar-expand-lg fixed-top navbar-dark  bg-royal-force">
+        <div class="container">
+            <a class="navbar-brand ml-auto ml-lg-0" asp-page="index">لرزنگار</a>
+            <button class="navbar-toggler p-0 border-0" type="button" data-toggle="offcanvas">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="navbar-collapse offcanvas-collapse" id="navbarsExampleDefault">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" asp-page="index">صفحه اصلی</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-page="news">آخرین رویدادها</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-page="learn">مقالات و آموزشها</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-page="about">درباره</a>
+                    </li>
+                </ul>
+                <form class="input-group form-inline my-2 my-lg-0 w-auto" asp-page="Search" method="get">
+                    <input name="city" class="form-control" type="text" placeholder="جستجو شهر" aria-label="جستجو شهر">
+                    <div class="input-group-append">
+                        <button class="btn btn-success" type="submit"><span class="fal fa-search"></span> جستجو</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+    <main role="main" class="container py-5">
+        @RenderBody()
+    </main>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+            crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="assets/js/vendor/jquery.slim.min.js"><\/script>')</script>
+    <script src="~/assets/dist/js/bootstrap.bundle.js"></script>
+    <script src="~/js/offcanvas.js"></script>
+</body>
+
+</html>
