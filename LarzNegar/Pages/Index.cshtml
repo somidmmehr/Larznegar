@@ -11,7 +11,7 @@
             <h6>اطلاعات زمین لرزه های ایران</h6>
             <hr />
             <form class="input-group mb-sm-5" asp-page="Search" method="get">
-                <input name="city" class="form-control" type="text" placeholder="جستجو شهر" aria-label="جستجو شهر">
+                <input name="Search" class="form-control" type="text" placeholder="جستجو شهر" aria-label="جستجو شهر">
                 <div class="input-group-append">
                     <button class="btn btn-outline-success" type="submit"><span class="fal fa-search"></span> جستجو</button>
                 </div>
@@ -46,7 +46,7 @@
                 </svg>
                 <div class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
                     <div class="d-flex justify-content-between align-items-center w-100">
-                        <strong class="text-gray-dark">Full Name</strong>
+                      <strong class="text-gray-dark">Full Name</strong>
                         <a href="#">Follow</a>
                     </div>
                     <span class="d-block">@@username</span>
@@ -77,164 +77,70 @@
         <div class="p-3 bg-white rounded shadow">
             <p class="float-left text-danger h6"><span class="fal fa-play-circle fa-blink"></span> آپدیت زنده</p>
             <h6 class="border-bottom border-gray pb-2 mb-0">آخرین رویدادها</h6>
-            <div class="media text-muted pt-3">
-                <span class="bd-placeholder-img ml-2 rounded badge badge-danger" width="32" height="32">
-                    6.6 <br>
-                    <span style="font-size: 10px">ریشتر</span>
-                </span>
-                <div class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
-                    <button class="float-left btn btn-sm btn-info" type="button" data-toggle="collapse"
-                            data-target="#multiCollapseExample2">
-                        <span class="fal fa-info"></span> جزئیات
-                    </button>
-                    <a href="search.html?city='kermanshah'">
-                        <h5 class="d-block text-gray-dark"><span class="fal fa-city"></span> کرمانشاه</h5>
-                    </a>
-                    <p><span class="fal fa-clock"></span> 23 دقیقه و 10 ثانیه پیش</p>
-                </div>
-            </div>
 
-            <div class="collapse multi-collapse" id="multiCollapseExample2">
-                <div class="" style="font-size: 15px;">
-                    <table class="table table-striped">
-                        <tr>
-                            <td align="left">نوع</td>
-                            <td align="center" width="16px;"><span class="fal fa-signal-stream"></span></td>
-                            <td>لغزش صفحه افقی</td>
-                        </tr>
-                        <td align="left">عمق</td>
-                        <td align="center"><span class="fal fa-sort-amount-down"></span></td>
-                        <td>5 کیلومتری</td>
-                        </tr>
-                        <td align="left">مدت</td>
-                        <td align="center"><span class="fal fa-chess-clock"></span></td>
-                        <td>13 ثانیه</td>
-                        </tr>
-                        <td align="left">میزان خسارت</td>
-                        <td align="center"><span class="fal fa-house-damage"></span></td>
-                        <td>1000 میلیون تومان</td>
-                        </tr>
-                        <td align="left">میزان تلفات</td>
-                        <td align="center"><span class="fal fa-tombstone-alt"></span></td>
-                        <td>5 نفر</td>
-                        </tr>
-                        <tr>
-                            <td align="left">تعداد آوارگان</td>
-                            <td align="center"><span class="fal fa-house-leave"></span></td>
-                            <td>تخمین زده نشده</td>
-                        </tr>
-                    </table>
+            @foreach (var earthquackes in Model.Earthquackes)
+            {
+                /*
+                @switch (true) {
+                            case earthquackes.Magnitude < 3 { break; }
+                        }
+                */
+                <div class="media text-muted pt-3">
+                    <span class="bd-placeholder-img ml-2 rounded badge badge-danger" width="32" height="32">
+                        @earthquackes.Magnitude <br>
+                        <span style="font-size: 10px">ریشتر</span>
+                    </span>
+                    <div class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+                        <button class="float-left btn btn-sm btn-info" type="button" data-toggle="collapse"
+                                data-target="#eq-@earthquackes.Id">
+                            <span class="fal fa-info"></span> جزئیات
+                        </button>
+                        <a asp-page="Search" asp-route-Search="@earthquackes.Location">
+                            <h5 class="d-block text-gray-dark"><span class="fal fa-city"></span> @earthquackes.Location</h5>
+                        </a>
+                        <p><span class="fal fa-clock"></span> 23 دقیقه و 10 ثانیه پیش</p>
+                    </div>
                 </div>
-                <hr />
-            </div>
 
-            <div class="media text-muted pt-3">
-                <span class="bd-placeholder-img ml-2 rounded badge badge-info" width="32" height="32">
-                    2.9 <br>
-                    <span style="font-size: 10px">ریشتر</span>
-                </span>
-                <div class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
-                    <button class="float-left btn btn-sm btn-info" type="button" data-toggle="collapse"
-                            data-target="#multiCollapseExample2">
-                        <span class="fal fa-info"></span> جزئیات
-                    </button>
-                    <h5 class="d-block text-gray-dark"><span class="fal fa-city"></span> یزد</h5>
-                    <p><span class="fal fa-clock"></span> 1 ساعت و 23 دقیقه و 10 ثانیه پیش</p>
+                <div class="collapse multi-collapse" id="eq-@earthquackes.Id">
+                    <div class="" style="font-size: 15px;">
+                        <table class="table table-striped">
+                            <tr>
+                                <td align="left">نوع</td>
+                                <td align="center" width="16px;"><span class="fal fa-signal-stream"></span></td>
+                                <td>لغزش صفحه افقی</td>
+                            </tr>
+                            <tr>
+                                <td align="left">عمق</td>
+                                <td align="center"><span class="fal fa-sort-amount-down"></span></td>
+                                <td>5 کیلومتری</td>
+                            </tr>
+                            <tr>
+                                <td align="left">مدت</td>
+                                <td align="center"><span class="fal fa-chess-clock"></span></td>
+                                <td>13 ثانیه</td>
+                            </tr>
+                            <tr>
+                                <td align="left">میزان خسارت</td>
+                                <td align="center"><span class="fal fa-house-damage"></span></td>
+                                <td>1000 میلیون تومان</td>
+                            </tr>
+                            <tr>
+                                <td align="left">میزان تلفات</td>
+                                <td align="center"><span class="fal fa-tombstone-alt"></span></td>
+                                <td>5 نفر</td>
+                            </tr>
+                            <tr>
+                                <td align="left">تعداد آوارگان</td>
+                                <td align="center"><span class="fal fa-house-leave"></span></td>
+                                <td>تخمین زده نشده</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <hr />
                 </div>
-            </div>
-            <div class="media text-muted pt-3">
-                <span class="bd-placeholder-img ml-2 rounded badge badge-warning" width="32" height="32">
-                    4.1 <br>
-                    <span style="font-size: 10px">ریشتر</span>
-                </span>
-                <div class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
-                    <button class="float-left btn btn-sm btn-info" type="button" data-toggle="collapse"
-                            data-target="#multiCollapseExample2">
-                        <span class="fal fa-info"></span> جزئیات
-                    </button>
-                    <h5 class="d-block text-gray-dark"><span class="fal fa-city"></span> چهارمحال و بختیاری</h5>
-                    <p><span class="fal fa-clock"></span> 1399/01/01 ساعت 22:30</p>
-                </div>
-            </div>
-            <div class="media text-muted pt-3">
-                <span class="bd-placeholder-img ml-2 rounded badge badge-danger" width="32" height="32">
-                    6.6 <br>
-                    <span style="font-size: 10px">ریشتر</span>
-                </span>
-                <div class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
-                    <button class="float-left btn btn-sm btn-info" type="button" data-toggle="collapse"
-                            data-target="#multiCollapseExample2">
-                        <span class="fal fa-info"></span> جزئیات
-                    </button>
-                    <a href="search.html?city='kermanshah'">
-                        <h5 class="d-block text-gray-dark"><span class="fal fa-city"></span> کرمانشاه</h5>
-                    </a>
-                    <p><span class="fal fa-clock"></span> 23 دقیقه و 10 ثانیه پیش</p>
-                </div>
-            </div>
+            }
 
-            <div class="collapse multi-collapse" id="multiCollapseExample2">
-                <div class="" style="font-size: 15px;">
-                    <table class="table table-striped">
-                        <tr>
-                            <td align="left">نوع</td>
-                            <td align="center" width="16px;"><span class="fal fa-signal-stream"></span></td>
-                            <td>لغزش صفحه افقی</td>
-                        </tr>
-                        <td align="left">عمق</td>
-                        <td align="center"><span class="fal fa-sort-amount-down"></span></td>
-                        <td>5 کیلومتری</td>
-                        </tr>
-                        <td align="left">مدت</td>
-                        <td align="center"><span class="fal fa-chess-clock"></span></td>
-                        <td>13 ثانیه</td>
-                        </tr>
-                        <td align="left">میزان خسارت</td>
-                        <td align="center"><span class="fal fa-house-damage"></span></td>
-                        <td>1000 میلیون تومان</td>
-                        </tr>
-                        <td align="left">میزان تلفات</td>
-                        <td align="center"><span class="fal fa-tombstone-alt"></span></td>
-                        <td>5 نفر</td>
-                        </tr>
-                        <tr>
-                            <td align="left">تعداد آوارگان</td>
-                            <td align="center"><span class="fal fa-house-leave"></span></td>
-                            <td>تخمین زده نشده</td>
-                        </tr>
-                    </table>
-                </div>
-                <hr />
-            </div>
-
-            <div class="media text-muted pt-3">
-                <span class="bd-placeholder-img ml-2 rounded badge badge-info" width="32" height="32">
-                    2.9 <br>
-                    <span style="font-size: 10px">ریشتر</span>
-                </span>
-                <div class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
-                    <button class="float-left btn btn-sm btn-info" type="button" data-toggle="collapse"
-                            data-target="#multiCollapseExample2">
-                        <span class="fal fa-info"></span> جزئیات
-                    </button>
-                    <h5 class="d-block text-gray-dark"><span class="fal fa-city"></span> یزد</h5>
-                    <p><span class="fal fa-clock"></span> 1 ساعت و 23 دقیقه و 10 ثانیه پیش</p>
-                </div>
-            </div>
-            <div class="media text-muted pt-3">
-                <span class="bd-placeholder-img ml-2 rounded badge badge-warning" width="32" height="32">
-                    4.1 <br>
-                    <span style="font-size: 10px">ریشتر</span>
-                </span>
-                <div class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
-                    <button class="float-left btn btn-sm btn-info" type="button" data-toggle="collapse"
-                            data-target="#multiCollapseExample2">
-                        <span class="fal fa-info"></span> جزئیات
-                    </button>
-                    <h5 class="d-block text-gray-dark"><span class="fal fa-city"></span> چهارمحال و بختیاری</h5>
-                    <p><span class="fal fa-clock"></span> 1399/01/01 ساعت 22:30</p>
-                </div>
-            </div>
             <small class="d-block text-left mt-3">
                 <a href="#">مشاهده لیست کامل رویدادها</a>
             </small>

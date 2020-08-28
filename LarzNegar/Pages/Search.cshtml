@@ -1,6 +1,68 @@
-﻿@page
+﻿@page 
 @model LarzNegar.Pages.SearchModel
 @{
+    ViewData["Search"] = Model.Search;
 }
 
-@Model.city
+@foreach (var earthquackes in Model.Earthquakes)
+{
+    /*
+    @switch (true) {
+        case earthquackes.Magnitude < 3 { break; }
+    }
+    */
+    <div class="media text-muted pt-3">
+        <span class="bd-placeholder-img ml-2 rounded badge badge-danger" width="32" height="32">
+            @earthquackes.Magnitude <br>
+            <span style="font-size: 10px">ریشتر</span>
+        </span>
+        <div class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+            <button class="float-left btn btn-sm btn-info" type="button" data-toggle="collapse"
+                    data-target="#eq-@earthquackes.Id">
+                <span class="fal fa-info"></span> جزئیات
+            </button>
+            <a asp-page="Search" asp-route-Search="@earthquackes.Location">
+                <h5 class="d-block text-gray-dark"><span class="fal fa-city"></span> @earthquackes.Location</h5>
+            </a>
+            <p><span class="fal fa-clock"></span> 23 دقیقه و 10 ثانیه پیش</p>
+        </div>
+    </div>
+
+    <div class="collapse multi-collapse" id="eq-@earthquackes.Id">
+        <div class="" style="font-size: 15px;">
+            <table class="table table-striped">
+                <tr>
+                    <td align="left">نوع</td>
+                    <td align="center" width="16px;"><span class="fal fa-signal-stream"></span></td>
+                    <td>لغزش صفحه افقی</td>
+                </tr>
+                <tr>
+                    <td align="left">عمق</td>
+                    <td align="center"><span class="fal fa-sort-amount-down"></span></td>
+                    <td>5 کیلومتری</td>
+                </tr>
+                <tr>
+                    <td align="left">مدت</td>
+                    <td align="center"><span class="fal fa-chess-clock"></span></td>
+                    <td>13 ثانیه</td>
+                </tr>
+                <tr>
+                    <td align="left">میزان خسارت</td>
+                    <td align="center"><span class="fal fa-house-damage"></span></td>
+                    <td>1000 میلیون تومان</td>
+                </tr>
+                <tr>
+                    <td align="left">میزان تلفات</td>
+                    <td align="center"><span class="fal fa-tombstone-alt"></span></td>
+                    <td>5 نفر</td>
+                </tr>
+                <tr>
+                    <td align="left">تعداد آوارگان</td>
+                    <td align="center"><span class="fal fa-house-leave"></span></td>
+                    <td>تخمین زده نشده</td>
+                </tr>
+            </table>
+        </div>
+        <hr />
+    </div>
+}
