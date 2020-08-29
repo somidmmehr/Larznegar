@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Data;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 
 namespace LarzNegar.Model
@@ -11,8 +13,10 @@ namespace LarzNegar.Model
         public int Id { get; set; }
         public DateTime DateTime { get; set; }
         public int Duration { get; set; }
+        [Required]
         public double Magnitude { get; set; }
         public double Depth { get; set; }
+        [Required]
         public string Location { get; set; }
         public Array Epicenter { get; set; }
         public FaultType Type { get; set; }

@@ -1,32 +1,33 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using LarzNegar.Interface;
 using LarzNegar.Model;
-using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace LarzNegar.Pages
 {
-    public class SearchModel : PageModel
+    public class DetailModel : PageModel
     {
         private readonly IEarthquackeData earthquackeData;
 
-        public IEnumerable<Larz> Earthquakes { get; set; }
+        public Larz Larz { get; set; }
 
-        [BindProperty(SupportsGet = true)]
-        public string Search { get; set; }
-
-        public SearchModel(IEarthquackeData earthquackeData)
+        public DetailModel(IEarthquackeData earthquackeData)
         {
             this.earthquackeData = earthquackeData;
         }
-
-        public void OnGet()
+        public IActionResult OnGet(int LarzId)
         {
-            this.Earthquakes = earthquackeData.GetAll(Search);
+            Larz = earthquackeData.GetById(LarzId);
+            if (Larz == null)
+            {
+                return RedirectToPage("Notfound");
+            }
+            return Page();
+
         }
     }
 }

@@ -13,14 +13,14 @@ namespace LarzNegar.Pages
     public class IndexModel : PageModel
     {
         private readonly ILogger<IndexModel> _logger;
-        private readonly InMemoryEarthquackeData earthquackeData;
-        public IEnumerable<Larz> Earthquackes { get; set; }
-        public string MagnituteStyle { get; set; }
+        private readonly IEarthquackeData earthquackeData;
 
-        public IndexModel(ILogger<IndexModel> logger)
+        public IEnumerable<Larz> Earthquackes { get; set; }
+
+        public IndexModel(ILogger<IndexModel> logger, IEarthquackeData earthquackeData)
         {
             _logger = logger;
-            this.earthquackeData = new InMemoryEarthquackeData();
+            this.earthquackeData = earthquackeData;
         }
 
         public void OnGet()

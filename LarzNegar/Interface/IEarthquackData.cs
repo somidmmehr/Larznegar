@@ -1,6 +1,7 @@
 ﻿using LarzNegar.Model;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -8,7 +9,10 @@ namespace LarzNegar.Interface
 {
     public interface IEarthquackeData
     {
-        IEnumerable<Larz> GetAll(string search);
+        IEnumerable<Larz> GetAll(string search = null);
+        Larz GetById(int id);
+        Larz Update(Larz updatedlarz);
+        int Commit();
     }
 
     public class InMemoryEarthquackeData : IEarthquackeData
@@ -34,12 +38,34 @@ namespace LarzNegar.Interface
             };
         }
 
+        public Larz GetById(int id)
+        {
+            return Larzs.SingleOrDefault(l => l.Id == id);
+        }
+
         public IEnumerable<Larz> GetAll(string search = null)
         {
             return from l in Larzs
                    where string.IsNullOrEmpty(search) || l.Location.StartsWith(search)
                    orderby l.Id
                    select l;
+        }
+
+        public Larz Update(Larz updatedlarz)
+        {
+            var Larz = Larzs.SingleOrDefault(l => l.Id == updatedlarz.Id);
+            if (Larz != null)
+            {
+                Larz.Location = updatedlarz.Location;
+                Larz.Magnitude = updatedlarz.Magnitude;
+                Larz.Type = updatedlarz.Type;
+            }
+            return Larz;
+        }
+
+        public int Commit()
+        {
+            return 0;
         }
     }
 }

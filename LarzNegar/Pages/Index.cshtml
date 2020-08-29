@@ -95,6 +95,9 @@
                                 data-target="#eq-@earthquackes.Id">
                             <span class="fal fa-info"></span> جزئیات
                         </button>
+                        <a class="float-left btn btn-sm btn-outline-success ml-3" asp-page="Detail" asp-route-LarzId="@earthquackes.Id">
+                            <span class="fal fa-search"></span> مطالعه
+                        </a>
                         <a asp-page="Search" asp-route-Search="@earthquackes.Location">
                             <h5 class="d-block text-gray-dark"><span class="fal fa-city"></span> @earthquackes.Location</h5>
                         </a>

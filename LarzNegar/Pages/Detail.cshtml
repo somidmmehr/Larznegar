@@ -1,0 +1,14 @@
+﻿@page "{LarzId:int}"
+@model LarzNegar.Pages.DetailModel
+@{
+    ViewData["Title"] = "Detail";
+}
+
+<a class="float-left btn btn-sm btn-outline-warning ml-3" asp-page="Edit" asp-route-LarzId="@Model.Larz.Id">
+    <span class="fal fa-edit"></span> ویرایش
+</a>
+<h1>@Model.Larz.Location</h1>
+<h3>@Model.Larz.Id</h3>
+<h3>@Model.Larz.Magnitude</h3>
+<h3>@Model.Larz.Type</h3>
+
