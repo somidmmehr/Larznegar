@@ -34,6 +34,7 @@ namespace LarzNegar.Pages
             {
                 Larz = earthquackeData.Create(Larz);
                 earthquackeData.Commit();
+                TempData["Message"] = "رویداد جدید ثبت شد";
                 return RedirectToPage("Detail", new { LarzId = Larz.Id });
             }
             return Page();

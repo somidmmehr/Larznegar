@@ -13,6 +13,9 @@ namespace LarzNegar.Pages
     {
         private readonly IEarthquackeData earthquackeData;
 
+        [TempData]
+        public string Message { get; set; }
+
         public Larz Larz { get; set; }
 
         public DetailModel(IEarthquackeData earthquackeData)

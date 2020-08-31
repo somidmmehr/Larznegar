@@ -4,6 +4,13 @@
     ViewData["Title"] = "Detail";
 }
 
+@if (Model.Message != null)
+{
+<div class="alert alert-info">
+    <span class="fal fa-info-square"></span> @Model.Message
+</div>
+}
+
 <a class="float-left btn btn-sm btn-outline-warning ml-3" asp-page="Edit" asp-route-LarzId="@Model.Larz.Id">
     <span class="fal fa-edit"></span> ویرایش
 </a>
