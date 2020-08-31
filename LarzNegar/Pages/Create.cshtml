@@ -1,0 +1,27 @@
+﻿@page
+@model LarzNegar.Pages.CreateModel
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>ایجاد رویداد جدید @Model.Larz.Id</h1>
+<hr />
+<form method="post">
+    <input type="hidden" asp-for="Larz.Id" />
+    <div class="form-group">
+        <label asp-for="Larz.Location">مکان</label>
+        <input class="form-control" asp-for="Larz.Location" />
+        <span class="text-danger" asp-validation-for="Larz.Location"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Larz.Magnitude">شدت</label>
+        <input class="form-control" asp-for="Larz.Magnitude" />
+        <span class="text-danger" asp-validation-for="Larz.Magnitude"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Larz.Type">نوع</label>
+        <select class="form-control" asp-for="Larz.Type" asp-items="Model.FaultType"></select>
+    </div>
+    <button type="submit" class="btn btn-success"><span class="fal fa-save"></span> ذخیره</button>
+</form>
+

@@ -9,6 +9,7 @@ namespace LarzNegar.Interface
 {
     public interface IEarthquackeData
     {
+        Larz Create(Larz newlarz);
         IEnumerable<Larz> GetAll(string search = null);
         Larz GetById(int id);
         Larz Update(Larz updatedlarz);
@@ -18,6 +19,22 @@ namespace LarzNegar.Interface
     public class InMemoryEarthquackeData : IEarthquackeData
     {
         List<Larz> Larzs;
+
+        private int lastId()
+        {
+            return Larzs.Max(x => x.Id);
+        }
+
+        public Larz Create(Larz newlarz)
+        {
+            var Larz = new Larz();
+            Larz.Id = lastId() + 1;
+            Larz.Location = newlarz.Location;
+            Larz.Magnitude = newlarz.Magnitude;
+            Larz.Type = newlarz.Type;
+            Larzs.Add(Larz);
+            return Larz;
+        }
 
         public InMemoryEarthquackeData()
         {
@@ -47,7 +64,7 @@ namespace LarzNegar.Interface
         {
             return from l in Larzs
                    where string.IsNullOrEmpty(search) || l.Location.StartsWith(search)
-                   orderby l.Id
+                   orderby l.Id descending
                    select l;
         }
 

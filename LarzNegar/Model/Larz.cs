@@ -13,10 +13,10 @@ namespace LarzNegar.Model
         public int Id { get; set; }
         public DateTime DateTime { get; set; }
         public int Duration { get; set; }
-        [Required]
+        [Required, Range(0, 20, ErrorMessage ="مقدار وارد شده صحیح نمی باشد.")]
         public double Magnitude { get; set; }
         public double Depth { get; set; }
-        [Required]
+        [Required(ErrorMessage = "مکان رویداد باید وارد شود.")]
         public string Location { get; set; }
         public Array Epicenter { get; set; }
         public FaultType Type { get; set; }
